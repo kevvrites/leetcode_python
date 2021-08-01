@@ -2,12 +2,13 @@
 # Problems available at https://leetcode.com/
 # Start Date: 07/21/2021
 # Start Time: 04:06 PM ET
-# Complete Date:
-# Complete Time:
+# Complete Date: 08/01/2021
+# Complete Time: 12:47 PM ET
 # Note: Problem may or may not be completed in one sitting.
 
 # Two Sum
 # https://leetcode.com/problems/two-sum/
+
 # Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 # You may assume that each input would have exactly one solution, and you may not use the same element twice.
 # You can return the answer in any order.
@@ -47,6 +48,12 @@
 # 3. Return the index of the first number and the index of the second.
 # 4. If the index of the subtraction results in null, pick a new first number.
 
+# Subtraction method improved:
+# Create a dictionary that stores the subtraction result needed and the index it corresponds to.
+# First pass through the array: add the necessary value to the dictionary.
+# If the needed value is found in the nums array, then return the index of the original (value in dictionary) and the index of the key value.
+
+# Test Cases
 nums_1 = [2,7,11,15]
 target_1 = 9
 
@@ -56,49 +63,50 @@ target_2 = 6
 nums_3 = [3,3]
 target_3 = 6
 
-# Brute Force Attempt (doesn't work)
-# def two_sum(nums, target):
-#     for i in nums:
-#         for j in nums:
-#             sum1 = i + j
-#             if sum1 == target:
-#                 if nums.index(i) != nums.index(j):
-#                     return nums.index(i), nums.index(j)
+# ------------------------------------------------------------------------------------------------------------------------------------
 
-def find_index(list, item):
-    for i in list:
-        if list.count(item) > 1
-        if i == item:
-            return list.index(i)
+# Brute Force Method: Time complexity O(n**2)
+def bruteForce_twoSum(self, nums, target):
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            sum1 = nums[i] + nums[j]
+            if sum1 == target:
+                return [i, j]
 
-# Subtraction Method Attempt
-def twoSum(nums, target):
-    ans = []
-    for i in nums:
-        sol = target - i
-        if nums.count(sol) >= 1:
-            num_loc = nums.index(i)
-            sol_loc = nums.index(sol)
-            if num_loc != sol_loc:
-                ans.append(num_loc)
-                ans.append(sol_loc)
-                print(ans)
-                break
-            # else:
-            #     sol_loc = nums.reverse().index(sol)
-            #     ans.append(num_loc)
-            #     ans.append(sol_loc)
-            #     print(ans)
-            #     break
+# Brute Force Submission Result:
+# Runtime:      4544 ms (top 13.06%)
+# Memory Usage: 14.9 MB (top 65.17%)
 
-# Filter answers:
-# Issue 1: Running against duplicate pairs (e.g. [1,2] is the same as [2,1] but both are returned)
-# Issue 2: Running against using the same number twice (e.g. [0,0])
-# Solution Attempt: checking if the indexes are equal resolves issue 2.
-# Solution Attempt: end the loop after one answer is printed resolves issue 1.
+# ------------------------------------------------------------------------------------------------------------------------------------
 
+# Subtraction Method Attempt: Time complexity O(n**2)
+def subtraction_twoSum(self, nums, target):
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            searchFor = target - nums[i]
+            if nums[j] == searchFor:
+                return [i, j]
 
+# Subtraction Submission Result:
+# Runtime:      4492 ms (top 13.95%)
+# Memory Usage: 14.8 MB (top 92.03%)
 
-twoSum(nums_1, target_1)
-twoSum(nums_2, target_2)
-twoSum(nums_3, target_3)
+# ------------------------------------------------------------------------------------------------------------------------------------
+
+# Dictionary Method Attempt: Time complexity O(n)
+def dict_twoSum(nums, target):
+    answers = {}
+    for i in range(len(nums)):
+        num = nums[i]
+        searchFor = target - num
+
+        if num in answers:
+            return [i, answers[num]]
+        else:
+            answers[searchFor] = i
+
+dict_twoSum(nums_1, target_1)
+
+# Dictionary Submission Attempt:
+# Runtime:      0060 ms (top 76.89%)
+# Memory Usage: 15.6 MB (top 14.02%)
