@@ -2,8 +2,8 @@
 # Problems available at https://leetcode.com/
 # Start Date: 08/04/2021
 # Start Time: 12:45 PM ET
-# Complete Date: 00/00/0000
-# Complete Time: 00:00 PM ET
+# Complete Date: 08/13/2021
+# Complete Time: 10:24 AM ET
 # Note: Problem may or may not be completed in one sitting.
 
 # Longest Common Prefix
@@ -38,52 +38,22 @@
 # 5. Check prefix with the next character.
 
 # Process:
-# The first word should have the full prefix.
-# The second loop will reduce the prefix to only the matching parts.
-# The third loop will reduce the prefix further, etc.
-# Return the prefix.
-# .substring might be really helpful
-# map may also be helpful
+# The first word is the prefix.
+# If the next word does not start with the prefix, then cut the last letter of the prefix.
+# Repeat until a prefix matches.
+# If a prefix matches, then go to the next word in the list.
+# If no matches, then it will return an empty string.
 
 def longestCommonPrefix(strs):
     if len(strs) <= 1:
         prefix = strs[0]
-        return prefix
-    prefix = strs[0]
-    for word in range(len(strs)):
-        word = strs[word]
-        nextword = strs[word + 1]
-        if map(checkString(word, nextword), strs):
-            prefix += word
+    else:
+        prefix = strs[0]
+        for i in range(1, len(strs)):
+            while not strs[i].startswith(prefix):
+                prefix = prefix[:-1]
     return prefix
-
-def checkString(sub, word):
-    if sub in word:
-        return True
 
 # Submission Result:
-# Runtime:      0000 ms (top 00.00%)
-# Memory Usage: 00.0 MB (top 00.00%)
-
-strs = ["flower", "flow"]
-print(longestCommonPrefix(strs))
-
-
-
-def longestCommonPrefix_1(strs):
-    prefix = ""
-    letter = 0
-    length = len(strs)
-    if length <= 1:
-        prefix = strs[0]
-    else:
-        for word in range(length):
-            for nextword in range(word + 1, length):
-                if strs[word][letter] == strs[nextword][letter]:
-                    prefix += strs[word][letter]
-                    letter += 1
-    return prefix
-
-# Issues:
-# The code works for a two-item comparison. It loops through, but it is not effective for comparing three or more objects together.
-# The prefix += has to be moved or given a stricter condition.
+# Runtime:      0042 ms (top 85.96%)
+# Memory Usage: 14.3 MB (top 18.10%)
