@@ -51,8 +51,8 @@ def isPalindrome(x):
         return False
 
 # Submission Result:
-# Runtime:      0044 ms (top 98.31%)
-# Memory Usage: 14.1 MB (top 77.70%)
+# Runtime:      0044 ms (top 01.69%)
+# Memory Usage: 14.1 MB (top 22.30%)
 
 # ------------------------------------------------------------------------------------------------------------------------------------
 # Follow up: Could you solve it without converting the integer to a string?
@@ -91,8 +91,8 @@ y = 1001001001
 print(isPalindromeInt(y))
 
 # Submission Result:
-# Runtime:      0132 ms (top 05.14%)
-# Memory Usage: 14.3 MB (top 49.48%)
+# Runtime:      0132 ms (top 94.86%)
+# Memory Usage: 14.3 MB (top 50.52%)
 
 # Errors:
 # Cutting frontnum has errors for the first number because you cannot do % 0. 1 % 1 = 0, so the first case is special.

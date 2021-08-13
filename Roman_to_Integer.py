@@ -74,5 +74,5 @@ def romanToInt(s):
     return sum
 
 # Submission Result:
-# Runtime:      0044 ms (top 82.64%)
-# Memory Usage: 14.2 MB (top 83.71%)
+# Runtime:      0044 ms (top 17.36%)
+# Memory Usage: 14.2 MB (top 16.29%)

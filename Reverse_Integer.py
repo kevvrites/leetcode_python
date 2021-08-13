@@ -62,5 +62,5 @@ def reverse(x):
 # Original code did not work for negative numbers (negative sign moved to back of string/num when reversed)
 
 # Submission Result:
-# Runtime:      0036 ms (top 42.83%)
-# Memory Usage: 14.3 MB (top 12.14%)
+# Runtime:      0036 ms (top 57.17%)
+# Memory Usage: 14.3 MB (top 87.86%)

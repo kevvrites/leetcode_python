@@ -74,8 +74,8 @@ def bruteForce_twoSum(self, nums, target):
                 return [i, j]
 
 # Brute Force Submission Result:
-# Runtime:      4544 ms (top 13.06%)
-# Memory Usage: 14.9 MB (top 65.17%)
+# Runtime:      4544 ms (top 86.94%)
+# Memory Usage: 14.9 MB (top 34.83%)
 
 # ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -88,8 +88,8 @@ def subtraction_twoSum(self, nums, target):
                 return [i, j]
 
 # Subtraction Submission Result:
-# Runtime:      4492 ms (top 13.95%)
-# Memory Usage: 14.8 MB (top 92.03%)
+# Runtime:      4492 ms (top 86.05%)
+# Memory Usage: 14.8 MB (top 07.97%)
 
 # ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -108,5 +108,5 @@ def dict_twoSum(nums, target):
 dict_twoSum(nums_1, target_1)
 
 # Dictionary Submission Attempt:
-# Runtime:      0060 ms (top 76.89%)
-# Memory Usage: 15.6 MB (top 14.02%)
+# Runtime:      0060 ms (top 23.11%)
+# Memory Usage: 15.6 MB (top 85.98%)
