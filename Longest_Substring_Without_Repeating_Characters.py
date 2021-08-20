@@ -40,10 +40,29 @@
 # 1. Reminds me of the other substring problem maximum_subarray, uses Kadane's algorithm.
 # 2. Have a counter starting at 0. Have a temporary variable that stores the current string length.
 # 3. If the next character is not the last letter in the string, then add it to the end. Otherwise, start a new string.
+# Note: Comment 3 assumes that 'repeating' is referring to adjacent letters. This is not true in this case.
 # 4. Replace the counter with the maximum number each iteration.
 # 5. Return the counter
 # 6. Note: this does not work if the repeating substring is more than 1 letter (e.g. abcabc repeats, so the substring should be "abc").
 
+# Personal Attempt
+def length_of_longest_substring(s):
+    seen = []
+    max_len = 0
+    start = 0
+    for i in range(len(s)):
+        letter = s[i]
+        if letter not in seen:
+            start += 1
+            seen.append(letter)
+        else:
+            start = 1
+        max_len = max(max_len, start)
+    return max_len
+
+# Fails on "dvdf" test case.
+
+# ------------------------------------------------------------------------------------------------------------------------------------
 # Window Method
 # 1. Basically the same process, but add an index tracker
 # 2. Create a window, then judge whether the characters repeat (works for longer substrings)
